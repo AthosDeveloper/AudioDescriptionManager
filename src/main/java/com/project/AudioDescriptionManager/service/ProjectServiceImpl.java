@@ -5,6 +5,7 @@ import com.project.AudioDescriptionManager.repositories.ProjectRepository;
 import com.project.AudioDescriptionManager.service.exceptions.ResourceNotFoundException;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +17,6 @@ import java.util.List;
 public class ProjectServiceImpl implements ProjectService {
     @Autowired
     private ProjectRepository projectRepository;
-
 
 
     public List<Project> findAll() {

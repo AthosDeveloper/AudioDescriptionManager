@@ -19,6 +19,7 @@ public class ProjectController {
 
     @Autowired
     private ProjectServiceImpl service;
+
 @PostMapping(value = ID, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 
     public ResponseEntity<Project> calculateTotalValue (@PathVariable Long id, @RequestBody Project obj){

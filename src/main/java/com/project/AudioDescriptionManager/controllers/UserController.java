@@ -1,7 +1,9 @@
 package com.project.AudioDescriptionManager.controllers;
 
+import com.project.AudioDescriptionManager.data.DTOs.UserDTO;
 import com.project.AudioDescriptionManager.data.model.User;
 import com.project.AudioDescriptionManager.service.UserServiceImpl;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +19,8 @@ public class UserController {
 private static final String ID = "/{id}";
     @Autowired
     private UserServiceImpl service;
+    @Autowired
+    ModelMapper mapper;
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<User>> findAll(){
         return ResponseEntity.ok().body(service.findAll());

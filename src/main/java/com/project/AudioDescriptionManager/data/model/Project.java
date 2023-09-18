@@ -24,6 +24,7 @@ public class Project implements Serializable {
     private BigDecimal valuePerMinut;
     @Column(nullable = false)
     private Integer duration;
+
     @Enumerated(EnumType.STRING)
     private Type category;
     private BigDecimal totalValue;

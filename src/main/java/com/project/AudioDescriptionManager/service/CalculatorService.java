@@ -22,12 +22,12 @@ public class CalculatorService {
         } else
 throw  new ResourceNotFoundException("objeto não encontrado");
     }
- private User calculatePaymentUser(Project project, User user){
+ public User calculatePaymentUser(Project project, User user){
         validateData(user, project);
         if (user.getProjects() != null){
             BigDecimal value =(project.getTotalValue().multiply(user.getPercentage())).divide(new BigDecimal("100.0"));
             user.setValueToReceive(value);
-return  userService.update(user);
+return  userService.create(user);
         }
   throw  new ResourceNotFoundException("objeto não encontrado");
  }
