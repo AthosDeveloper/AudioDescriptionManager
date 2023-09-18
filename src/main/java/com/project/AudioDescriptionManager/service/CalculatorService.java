@@ -3,7 +3,7 @@ package com.project.AudioDescriptionManager.service;
 import com.project.AudioDescriptionManager.data.enums.Position;
 import com.project.AudioDescriptionManager.data.model.Project;
 import com.project.AudioDescriptionManager.data.model.User;
-import com.project.AudioDescriptionManager.service.exceptions.ResourseNotFoundException;
+import com.project.AudioDescriptionManager.service.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,16 +20,16 @@ public class CalculatorService {
         if (user != null && project != null) {
             return true;
         } else
-throw  new ResourseNotFoundException("objeto não encontrado");
+throw  new ResourceNotFoundException("objeto não encontrado");
     }
  private User calculatePaymentUser(Project project, User user){
         validateData(user, project);
         if (user.getProjects() != null){
-            BigDecimal value =(project.getTotalValue().multiply(user.getPercentage())).divide("100");
+            BigDecimal value =(project.getTotalValue().multiply(user.getPercentage())).divide(new BigDecimal("100.0"));
             user.setValueToReceive(value);
 return  userService.update(user);
         }
-  throw  new ResourseNotFoundException("objeto não encontrado");
+  throw  new ResourceNotFoundException("objeto não encontrado");
  }
  }
-}
+

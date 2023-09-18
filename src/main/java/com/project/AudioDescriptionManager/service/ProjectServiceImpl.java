@@ -2,7 +2,7 @@ package com.project.AudioDescriptionManager.service;
 
 import com.project.AudioDescriptionManager.data.model.Project;
 import com.project.AudioDescriptionManager.repositories.ProjectRepository;
-import com.project.AudioDescriptionManager.service.exceptions.ResourseNotFoundException;
+import com.project.AudioDescriptionManager.service.exceptions.ResourceNotFoundException;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ public class ProjectServiceImpl implements ProjectService {
     @Autowired
     private ProjectRepository projectRepository;
 
-    @Override
+
 
     public List<Project> findAll() {
         return projectRepository.findAll();
@@ -25,7 +25,7 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public Project findById(Long id) {
-        return projectRepository.findById(id).orElseThrow(() -> new ResourseNotFoundException("objeto não encontrado"));
+        return projectRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("objeto não encontrado"));
     }
 
     @Override

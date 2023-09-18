@@ -1,7 +1,7 @@
 package com.project.AudioDescriptionManager.service.exceptions;
 
-public class ResourseNotFoundException extends RuntimeException{
-    public ResourseNotFoundException(String message){
+public class ResourceNotFoundException extends RuntimeException{
+    public ResourceNotFoundException(String message){
         super(message);
     }
 }

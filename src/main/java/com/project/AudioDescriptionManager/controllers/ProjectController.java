@@ -1,9 +1,7 @@
 package com.project.AudioDescriptionManager.controllers;
 
 import com.project.AudioDescriptionManager.data.model.Project;
-import com.project.AudioDescriptionManager.service.ProjectService;
 import com.project.AudioDescriptionManager.service.ProjectServiceImpl;
-import com.project.AudioDescriptionManager.service.exceptions.ResourseNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +10,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
-import java.util.Optional;
 
 
 @RestController
