@@ -30,4 +30,5 @@ private Position position;
             inverseJoinColumns = @JoinColumn(name = "id_project"))
 private List<Project> projects;
 private BigDecimal percentage;
+private BigDecimal valueToReceive;
 }

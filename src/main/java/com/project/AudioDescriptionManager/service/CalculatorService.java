@@ -1,0 +1,35 @@
+package com.project.AudioDescriptionManager.service;
+
+import com.project.AudioDescriptionManager.data.enums.Position;
+import com.project.AudioDescriptionManager.data.model.Project;
+import com.project.AudioDescriptionManager.data.model.User;
+import com.project.AudioDescriptionManager.service.exceptions.ResourseNotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.math.BigDecimal;
+
+@Service
+public class CalculatorService {
+    @Autowired
+    private UserServiceImpl userService;
+    @Autowired
+    private ProjectServiceImpl projectService;
+    private Position position;
+    private boolean validateData(User user, Project project) {
+        if (user != null && project != null) {
+            return true;
+        } else
+throw  new ResourseNotFoundException("objeto não encontrado");
+    }
+ private User calculatePaymentUser(Project project, User user){
+        validateData(user, project);
+        if (user.getProjects() != null){
+            BigDecimal value =(project.getTotalValue().multiply(user.getPercentage())).divide("100");
+            user.setValueToReceive(value);
+return  userService.update(user);
+        }
+  throw  new ResourseNotFoundException("objeto não encontrado");
+ }
+ }
+}

@@ -21,9 +21,10 @@ public class Project implements Serializable {
     @Column(length = 39, nullable = false)
     private String projectName;
     private String description;
-    private BigDecimal valueMinuts;
+    private BigDecimal valuePerMinut;
     @Column(nullable = false)
     private Integer duration;
     @Enumerated(EnumType.STRING)
     private Type category;
+    private BigDecimal totalValue;
 }
