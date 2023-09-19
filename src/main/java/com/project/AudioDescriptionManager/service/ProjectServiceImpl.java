@@ -1,5 +1,6 @@
 package com.project.AudioDescriptionManager.service;
 
+import com.project.AudioDescriptionManager.data.DTOs.ProjectDTO;
 import com.project.AudioDescriptionManager.data.model.Project;
 import com.project.AudioDescriptionManager.repositories.ProjectRepository;
 import com.project.AudioDescriptionManager.service.exceptions.ResourceNotFoundException;
@@ -18,7 +19,8 @@ public class ProjectServiceImpl implements ProjectService {
     @Autowired
     private ProjectRepository projectRepository;
 
-
+@Autowired
+private  ModelMapper mapper;
     public List<Project> findAll() {
         return projectRepository.findAll();
     }
@@ -29,13 +31,13 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public Project creat(Project obj) {
-        return projectRepository.save(obj);
+    public Project creat(ProjectDTO obj) {
+        return projectRepository.save(mapper.map(obj, Project.class));
     }
 
     @Override
-    public Project update(Project obj) {
-        return projectRepository.save(obj);
+    public Project update (ProjectDTO obj) {
+        return projectRepository.save(mapper.map(obj, Project.class));
     }
 
     @Override

@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.List;
 @Table(name = "tb_users")
 @Entity
 @AllArgsConstructor
@@ -25,10 +24,9 @@ public class User implements Serializable {
 
     @Enumerated(EnumType.STRING)
 private Position position;
-    @ManyToMany
-    @JoinTable(name = "TB_USERS_PROJECTS", joinColumns = @JoinColumn(name = "id_user"),
-            inverseJoinColumns = @JoinColumn(name = "id_project"))
-private List<Project> projects;
-private BigDecimal percentage;
+    @ManyToOne
+    @JoinColumn(name = "id_project")
+private  Project project;
+    private BigDecimal percentage;
 private BigDecimal valueToReceive;
 }
